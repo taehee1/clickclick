@@ -349,7 +349,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5945190911824841584}
   - component: {fileID: 3483718427637267357}
-  - component: {fileID: 4761216829527455401}
   m_Layer: 0
   m_Name: Btn
   m_TagString: Untagged
@@ -367,8 +366,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -20.9178, z: 0}
-  m_LocalScale: {x: 8.769036, y: 4.6228976, z: 4.5787}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 8.769036, y: 4.622898, z: 4.5787}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4913069459151151215}
   m_Father: {fileID: 6773460481724765081}
@@ -425,27 +424,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &4761216829527455401
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5551564653467647754}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 59767ac278b88634d9079e743a5ae8ff, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8683385306180079222
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6773460481724765081}
   - component: {fileID: -6418526528677667568}
+  - component: {fileID: 9195130065360309856}
   m_Layer: 0
   m_Name: NoteGroup
   m_TagString: Untagged
@@ -498,6 +477,26 @@ MonoBehaviour:
   notePrefab: {fileID: 3149876652000295102, guid: a4df5c7bc3dceb744aa807b3d24cfd82, type: 3}
   noteSpawn: {fileID: 9049969140021851610}
   noteGap: 6.5
+  btnSpriteRenderer: {fileID: 3483718427637267357}
+  normalBtnSprite: {fileID: 21300000, guid: d7b61edc0b017174095824530172ad1f, type: 3}
+  selectBtnSprite: {fileID: 21300000, guid: 4fce3950ae84d9c46a154454c898bf17, type: 3}
+  anim: {fileID: 9195130065360309856}
+--- !u!111 &9195130065360309856
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8683385306180079222}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 1786d11570c0e474bad09d6356abd112, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 1786d11570c0e474bad09d6356abd112, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &9049969140021851610
 GameObject:
   m_ObjectHideFlags: 0
