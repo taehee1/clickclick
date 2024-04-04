@@ -27,15 +27,15 @@ public class NoteGroup : MonoBehaviour
 
     private List<Note> noteList = new List<Note>();
 
-    void Start()
+    public void Create(KeyCode keyCode)
     {
         for (int i = 0; i < noteMaxNum; i++)
         {
-            SpawnNote(true);
+            CreateNote(true);
         }
     }
 
-    private void SpawnNote(bool isApple)
+    private void CreateNote(bool isApple)
     {
         GameObject noteGameobj = Instantiate(notePrefab);
         noteGameobj.transform.SetParent(noteSpawn.transform);
@@ -52,12 +52,12 @@ public class NoteGroup : MonoBehaviour
         if (noteList.Count > 0)
         {
             Note delNote = noteList[0];
-            delNote.Destroy();
+            delNote.DeleteNote();
             noteList.RemoveAt(0);
         }
 
         //노트생성
-        SpawnNote(isApple);
+        CreateNote(isApple);
 
         for (int i = 0; i < noteList.Count; i++)
             noteList[i].transform.localPosition = Vector3.up * i * noteGap;
