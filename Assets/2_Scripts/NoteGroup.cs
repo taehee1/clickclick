@@ -27,7 +27,7 @@ public class NoteGroup : MonoBehaviour
 
     private List<Note> noteList = new List<Note>();
 
-    public void Create(KeyCode keyCode)
+    void Start()
     {
         for (int i = 0; i < noteMaxNum; i++)
         {
