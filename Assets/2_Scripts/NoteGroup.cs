@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class NoteGroup : MonoBehaviour
@@ -14,8 +15,9 @@ public class NoteGroup : MonoBehaviour
     [SerializeField] private SpriteRenderer btnSpriteRenderer;
     [SerializeField] private Sprite normalBtnSprite;
     [SerializeField] private Sprite selectBtnSprite;
+    [SerializeField] private TextMeshPro keyCodeTmp;
     [SerializeField] private Animation anim;
-    [SerializeField] private KeyCode keyCode;
+    private KeyCode keyCode;
 
     public KeyCode KeyCode
     {
@@ -27,12 +29,16 @@ public class NoteGroup : MonoBehaviour
 
     private List<Note> noteList = new List<Note>();
 
-    void Start()
+    public void Create(KeyCode keyCode)
     {
+        this.keyCode = keyCode;
+        keyCodeTmp.text = keyCode.ToString();
         for (int i = 0; i < noteMaxNum; i++)
         {
             CreateNote(true);
         }
+
+        InputManager.Instance.AddKeyCode(keyCode);
     }
 
     private void CreateNote(bool isApple)

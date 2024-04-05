@@ -13,6 +13,11 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
     }
+    private void Start()
+    {
+        UiManager.instance.OnScoreChange(this.score, maxScore);
+        NoteManager.instance.Create();
+    }
 
     internal void CalculateScore(bool isApple)
     {
@@ -24,6 +29,7 @@ public class GameManager : MonoBehaviour
         {
             score--;
         }
-        UiManager.instance.OnScoreChange(this.score, maxScore);
+
+        UiManager.instance.OnScoreChange(score, maxScore);
     }
 }
