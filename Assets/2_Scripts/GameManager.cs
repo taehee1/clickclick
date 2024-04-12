@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
@@ -9,11 +10,24 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int maxScore;
     [SerializeField] private int notegroupcreatscore = 10;
+    [SerializeField] private GameObject gameClearObj;
+    [SerializeField] private GameObject gameOverObj;
 
     private int score;
     private int nextnotegroupscore;
 
     [SerializeField] private float maxtime = 30f;
+
+    public bool IsGameDone
+    {
+        get
+        {
+            if (gameClearObj.activeSelf || gameOverObj.activeSelf)
+                return true;
+            else
+                return false;
+        }
+    }
 
     private void Awake()
     {
@@ -23,6 +37,9 @@ public class GameManager : MonoBehaviour
     {
         UiManager.instance.OnScoreChange(this.score, maxScore);
         NoteManager.instance.Create();
+
+        gameClearObj.SetActive(false);
+        gameOverObj.SetActive(false);
 
         StartCoroutine(TimerCoroutine());
     }
@@ -36,10 +53,15 @@ public class GameManager : MonoBehaviour
             currentTime += Time.deltaTime;
             UiManager.instance.OnTimerChange(currentTime, maxtime);
             yield return null;
+
+            if(IsGameDone)
+            {
+                yield break;
+            }
         }
 
         //gmaeover
-        Debug.Log("gameover");
+        gameOverObj.SetActive(true);
     }
 
     internal void CalculateScore(bool isApple)
@@ -54,6 +76,11 @@ public class GameManager : MonoBehaviour
                 nextnotegroupscore = 0;
                 NoteManager.instance.CreateNoteGroup();
             }
+            
+            if (maxScore <= score)
+            {
+                gameClearObj.SetActive(true);
+            }
 
         }
         else
@@ -63,5 +90,10 @@ public class GameManager : MonoBehaviour
         }
 
         UiManager.instance.OnScoreChange(score, maxScore);
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(0);
     }
 }
