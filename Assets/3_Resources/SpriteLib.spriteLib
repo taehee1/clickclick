@@ -27,8 +27,13 @@ MonoBehaviour:
       m_Sprite: {fileID: -3569186155708811207, guid: 583822a5f4cfa9d439b9078065976828, type: 3}
       m_FromMain: 0
       m_SpriteOverride: {fileID: -3569186155708811207, guid: 583822a5f4cfa9d439b9078065976828, type: 3}
+    - m_Name: junu
+      m_Hash: 1022665050
+      m_Sprite: {fileID: -8051244767340440160, guid: 583822a5f4cfa9d439b9078065976828, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -8051244767340440160, guid: 583822a5f4cfa9d439b9078065976828, type: 3}
     m_FromMain: 0
-    m_EntryOverrideCount: 2
+    m_EntryOverrideCount: 3
   - m_Name: Left Arm
     m_Hash: 788631449
     m_CategoryList: []
@@ -147,5 +152,5 @@ MonoBehaviour:
     m_FromMain: 0
     m_EntryOverrideCount: 3
   m_PrimaryLibraryGUID: 
-  m_ModificationHash: 638491338434145409
+  m_ModificationHash: 638497433077694536
   m_Version: 1
