@@ -17,6 +17,7 @@ public class NoteGroup : MonoBehaviour
     [SerializeField] private Sprite selectBtnSprite;
     [SerializeField] private TextMeshPro keyCodeTmp;
     [SerializeField] private Animation anim;
+
     private KeyCode keyCode;
 
     public KeyCode KeyCode
@@ -59,6 +60,14 @@ public class NoteGroup : MonoBehaviour
         {
             Note delNote = noteList[0];
             delNote.DeleteNote();
+            if (isApple)
+            {
+                
+            }
+            else
+            {
+                
+            }
             noteList.RemoveAt(0);
         }
 
