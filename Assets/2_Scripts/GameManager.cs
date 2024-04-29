@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameClearObj;
     [SerializeField] private GameObject gameOverObj;
 
-    private int score;
+    public int score;
     private int nextnotegroupscore;
 
     [SerializeField] private float maxtime = 30f;
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
         }
 
         //gmaeover
-        gameOverObj.SetActive(true);
+        SceneManager.LoadScene("Gameover Scene");
     }
 
     internal void CalculateScore(bool isApple)
