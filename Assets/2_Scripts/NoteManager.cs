@@ -15,7 +15,7 @@ public class NoteManager : MonoBehaviour
 
     public static NoteManager instance;
     private List<NoteGroup> noteGroupList = new List<NoteGroup>();
-    
+
     private void Awake()
     {
         instance = this;
@@ -59,6 +59,7 @@ public class NoteManager : MonoBehaviour
             if(keyCode == noteGroup.KeyCode)
             {
                 noteGroup.OnInput(isApple);
+                
                 break;
             }
         }
