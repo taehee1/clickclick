@@ -10,6 +10,7 @@ public class BtnManager : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene("Main");
+        ScoreManager.score = 0;
     }
 
     public void Exit()

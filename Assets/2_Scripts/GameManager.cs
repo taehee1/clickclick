@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
@@ -12,11 +13,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int notegroupcreatscore = 10;
     [SerializeField] private GameObject gameClearObj;
     [SerializeField] private GameObject gameOverObj;
-
-    public int score;
-    private int nextnotegroupscore;
-
     [SerializeField] private float maxtime = 30f;
+
+    private int nextnotegroupscore;
 
     public bool IsGameDone
     {
@@ -35,7 +34,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        UiManager.instance.OnScoreChange(this.score, maxScore);
+        UiManager.instance.OnScoreChange(ScoreManager.score, maxScore);
         NoteManager.instance.Create();
 
         gameClearObj.SetActive(false);
@@ -60,6 +59,11 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        if (ScoreManager.score > ScoreManager.bestScore)
+        {
+            ScoreManager.bestScore = ScoreManager.score;
+        }
+
         //gmaeover
         SceneManager.LoadScene("Gameover Scene");
     }
@@ -68,7 +72,7 @@ public class GameManager : MonoBehaviour
     {
         if(isApple)
         {
-            score++;
+            ScoreManager.score++;
             nextnotegroupscore++;
 
             if(notegroupcreatscore <= nextnotegroupscore)
@@ -77,7 +81,7 @@ public class GameManager : MonoBehaviour
                 NoteManager.instance.CreateNoteGroup();
             }
             
-            if (maxScore <= score)
+            if (maxScore <= ScoreManager.score)
             {
                 gameClearObj.SetActive(true);
             }
@@ -85,11 +89,11 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            score--;
+            ScoreManager.score--;
             nextnotegroupscore--;
         }
 
-        UiManager.instance.OnScoreChange(score, maxScore);
+        UiManager.instance.OnScoreChange(ScoreManager.score, maxScore);
     }
 
     public void Restart()
