@@ -22,6 +22,7 @@ public class Note : MonoBehaviour
         if (isApple )
         {
             SoundManager.instance.Sound(0);
+            Smile.Instance.Smileanim();
         }
         else
         {
