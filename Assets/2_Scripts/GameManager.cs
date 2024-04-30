@@ -7,6 +7,7 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
+
     public static GameManager Instance;
 
     [SerializeField] private int maxScore;
@@ -62,6 +63,7 @@ public class GameManager : MonoBehaviour
         if (ScoreManager.score > ScoreManager.bestScore)
         {
             ScoreManager.bestScore = ScoreManager.score;
+            PlayerPrefs.SetInt("bestScore", ScoreManager.bestScore);
         }
 
         //gmaeover
